@@ -1,0 +1,36 @@
+{
+  "name": "lichtblick-extension_autoware_new_planning_framework",
+  "displayName": "lichtblick-extension_autoware_new_planning_framework",
+  "description": "",
+  "publisher": "unknown",
+  "homepage": "",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "main": "./dist/extension.js",
+  "keywords": [],
+  "scripts": {
+    "build": "lichtblick-extension build",
+    "lichtblick:prepublish": "lichtblick-extension build --mode production",
+    "lint": "eslint .",
+    "lint:ci": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "local-install": "lichtblick-extension install",
+    "package": "lichtblick-extension package",
+    "pretest": "lichtblick-extension pretest"
+  },
+  "devDependencies": {
+    "@lichtblick/eslint-plugin": "1.0.2",
+    "@lichtblick/suite": "1.8.0",
+    "@types/react": "18.3.16",
+    "@types/react-dom": "18.3.5",
+    "create-lichtblick-extension": "1.0.0",
+    "eslint": "8.57.1",
+    "prettier": "3.4.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "5.7.2"
+  },
+  "dependencies": {
+    "@foxglove/schemas": "^1.6.6"
+  }
+}
