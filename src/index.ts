@@ -1,9 +1,4 @@
-import {
-  SceneUpdate,
-  LinePrimitive,
-  LineType,
-  Point3,
-} from "@foxglove/schemas";
+import { SceneUpdate, LinePrimitive, LineType, Point3 } from "@foxglove/schemas";
 import { Trajectories } from "./Trajectories";
 import { TrajectoryPoint } from "./TrajectoryPoint";
 import { ExtensionContext } from "@lichtblick/suite";
@@ -14,7 +9,7 @@ function createLinePrimitive(msg: TrajectoryPoint[]): LinePrimitive {
     points.push({
       x: msg[i]?.pose.position.x || 0.0,
       y: msg[i]?.pose.position.y || 0.0,
-      z: msg[i]?.pose.orientation.z || 0.0,
+      z: msg[i]?.pose.position.z || 0.0,
     });
   }
 
@@ -22,9 +17,9 @@ function createLinePrimitive(msg: TrajectoryPoint[]): LinePrimitive {
     type: LineType.LINE_STRIP,
     pose: {
       position: {
-        x: msg[0]?.pose.position.x || 0.0,
-        y: msg[0]?.pose.position.y || 0.0,
-        z: msg[0]?.pose.position.z || 0.0,
+        x: 0.0,
+        y: 0.0,
+        z: 0.0,
       },
       orientation: { x: 0, y: 0, z: 0, w: 1 },
     },
