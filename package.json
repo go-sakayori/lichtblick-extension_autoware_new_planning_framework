@@ -1,11 +1,11 @@
 {
-  "name": "lichtblick-extension_autoware_new_planning_framework",
-  "displayName": "lichtblick-extension_autoware_new_planning_framework",
-  "description": "",
-  "publisher": "unknown",
+  "name": "autoware_new_planning_framework",
+  "displayName": "autoware_new_planning_framework",
+  "description": "This is a extension to display the debug information of the autoware new planning framework trajectory selector",
+  "publisher": "go-sakayori",
   "homepage": "",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
+  "version": "0.1.0",
+  "license": "Apache 2.0",
   "main": "./dist/extension.js",
   "keywords": [],
   "scripts": {
