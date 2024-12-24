@@ -55,7 +55,7 @@ function convertTrajectories(msg: Trajectories): SceneUpdate {
         timestamp: trajectories[0]?.header.stamp || { sec: 0, nsec: 0 },
         frame_id: trajectories[0]?.header.frame_id || "",
         id: "generated_paths",
-        lifetime: { sec: 1.0, nsec: 0 },
+        lifetime: { sec: 0, nsec: 150000000 },
         frame_locked: false,
         metadata: [],
         arrows: [],
