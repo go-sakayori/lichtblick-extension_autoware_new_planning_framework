@@ -3,10 +3,13 @@ import {
   LinePrimitive,
   LineType,
   Point3,
+  PosesInFrame,
+  Pose,
 } from "@foxglove/schemas";
 import { Trajectories } from "./Trajectories";
 import { TrajectoryPoint } from "./TrajectoryPoint";
 import { ExtensionContext } from "@lichtblick/suite";
+import { Trajectory } from "./Trajectory";
 
 function createLinePrimitive(msg: TrajectoryPoint[]): LinePrimitive {
   const points: Point3[] = [];
@@ -71,10 +74,45 @@ function convertTrajectories(msg: Trajectories): SceneUpdate {
   };
 }
 
+function convertTrajectory(msg: Trajectory): PosesInFrame {
+  const frame_id = msg.header.frame_id;
+  const timestamp = msg.header.stamp;
+  const points = msg.points;
+
+  const poses: Pose[] = [];
+
+  for (let i = 0; i < points.length; i++) {
+    poses.push({
+      position: {
+        x: points[i]?.pose.position.x || 0.0,
+        y: points[i]?.pose.position.y || 0.0,
+        z: points[i]?.pose.position.z || 0.0,
+      },
+      orientation: {
+        y: points[i]?.pose.orientation.y || 0.0,
+        z: points[i]?.pose.orientation.z || 0.0,
+        x: points[i]?.pose.orientation.x || 0.0,
+        w: points[i]?.pose.orientation.w || 0.0,
+      },
+    });
+  }
+
+  return {
+    frame_id,
+    timestamp,
+    poses,
+  };
+}
+
 export function activate(extensionContext: ExtensionContext): void {
   extensionContext.registerMessageConverter({
     fromSchemaName: "autoware_new_planning_msgs/msg/Trajectories",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertTrajectories,
+  });
+  extensionContext.registerMessageConverter({
+    fromSchemaName: "autoware_planning_msgs/msg/Trajectory",
+    toSchemaName: "foxglove.PosesInFrame",
+    converter: convertTrajectory,
   });
 }
