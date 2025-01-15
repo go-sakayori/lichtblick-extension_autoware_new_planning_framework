@@ -1,6 +1,14 @@
 # lichtblick-extension_autoware_new_planning_framework
 
-The message type for [Trajectories.msg](https://github.com/tier4/new_planning_framework/blob/main/autoware_new_planning_msgs/msg/Trajectories.msg) in [new_planning_framework](https://github.com/tier4/new_planning_framework) is currently visible in the 3D scene. This extension should work regardless to the lichtblick version. To use the extension in the local desktop app, please refer to [Develop](#develop). You should drag and drop the `.foxe` file when using in browser.
+The message type supported is
+
+- [Trajectories.msg](https://github.com/tier4/new_planning_framework/blob/main/autoware_new_planning_msgs/msg/Trajectories.msg) in [new_planning_framework](https://github.com/tier4/new_planning_framework)
+- [Trajectory.msg](https://github.com/autowarefoundation/autoware_msgs/blob/main/autoware_planning_msgs/msg/Trajectory.msg) in [autoware_planning_msgs](https://github.com/autowarefoundation/autoware_msgs/tree/main/autoware_planning_msgs)
+
+These messages are currently visible in the 3D scene. This extension should work regardless to the lichtblick version. To use the extension in the local desktop app, please refer to [Develop](#develop). You should drag and drop the `.foxe` file when using in browser.
+
+By selecting the message, it should be visualized as the following image.
+![example_figure](./docs/example.png)
 
 ## Lichtblick extension
 
